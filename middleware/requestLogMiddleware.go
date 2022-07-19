@@ -3,9 +3,9 @@ package middleware
 import (
 	"bytes"
 	"encoding/json"
-	"ginx/core"
-	"ginx/custom"
-	"ginx/util"
+	"github.com/mark-wby/ginx/core"
+	"github.com/mark-wby/ginx/custom"
+	"github.com/mark-wby/ginx/util"
 	"github.com/gin-gonic/gin"
 )
 

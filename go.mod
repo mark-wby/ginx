@@ -1,4 +1,4 @@
-module ginx
+module github.com/mark-wby/ginx
 
 go 1.16
 

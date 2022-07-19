@@ -2,7 +2,7 @@ package util
 
 import (
 	"fmt"
-	"ginx/config"
+	"github.com/mark-wby/ginx/config"
 	"github.com/streadway/amqp"
 	"log"
 )

@@ -3,7 +3,7 @@ package util
 import (
 	"bytes"
 	"encoding/json"
-	"ginx/custom"
+	"github.com/mark-wby/ginx/custom"
 	"io/ioutil"
 	"net/http"
 	"reflect"

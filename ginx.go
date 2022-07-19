@@ -2,9 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	"ginx/config"
-	"ginx/core"
-	"ginx/demo/controller"
+	"github.com/mark-wby/ginx/config"
+	"github.com/mark-wby/ginx/core"
+	"github.com/mark-wby/ginx/demo/controller"
 	"log"
 	"os"
 )

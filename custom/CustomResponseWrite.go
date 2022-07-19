@@ -2,7 +2,7 @@ package custom
 
 import (
 	"bytes"
-	"ginx/util"
+	"github.com/mark-wby/ginx/util"
 	"github.com/gin-gonic/gin"
 )
 

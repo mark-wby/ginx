@@ -2,10 +2,10 @@ package core
 
 import (
 	"fmt"
-	"ginx/config"
-	"ginx/custom"
-	"ginx/plugin"
-	"ginx/util"
+	"github.com/mark-wby/ginx/config"
+	"github.com/mark-wby/ginx/custom"
+	"github.com/mark-wby/ginx/plugin"
+	"github.com/mark-wby/ginx/util"
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

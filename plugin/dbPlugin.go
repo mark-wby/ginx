@@ -1,8 +1,8 @@
 package plugin
 
 import (
-	"ginx/core"
-	"ginx/custom"
+	"github.com/mark-wby/ginx/core"
+	"github.com/mark-wby/ginx/custom"
 	"gorm.io/gorm"
 )
 

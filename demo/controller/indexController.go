@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"ginx/core"
+	"github.com/mark-wby/ginx/core"
 	"github.com/gin-gonic/gin"
 )
 

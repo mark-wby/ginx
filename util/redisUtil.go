@@ -2,7 +2,7 @@ package util
 
 import (
 	"context"
-	"ginx/config"
+	"github.com/mark-wby/ginx/config"
 	"github.com/go-redis/redis/v8"
 	"time"
 )
