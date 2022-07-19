@@ -17,6 +17,7 @@ func main(){
 		InitDB(config).
 		Build(&controller.IndexController{}).
 		Start(":8888")
+
 }
 
 //解析数据库配置

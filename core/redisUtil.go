@@ -1,9 +1,9 @@
-package util
+package core
 
 import (
 	"context"
-	"github.com/mark-wby/ginx/config"
 	"github.com/go-redis/redis/v8"
+	"github.com/mark-wby/ginx/config"
 	"time"
 )
 

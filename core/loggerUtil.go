@@ -1,4 +1,4 @@
-package util
+package core
 
 type LoggerUtil struct {
 	requestSqlLog []string //sql日志

@@ -1,4 +1,4 @@
-package custom
+package core
 
 type GinxException struct {
 	Code int //错误码

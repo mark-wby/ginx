@@ -2,11 +2,8 @@ package core
 
 import (
 	"fmt"
-	"github.com/mark-wby/ginx/config"
-	"github.com/mark-wby/ginx/custom"
-	"github.com/mark-wby/ginx/plugin"
-	"github.com/mark-wby/ginx/util"
 	"github.com/gin-gonic/gin"
+	"github.com/mark-wby/ginx/config"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"log"
@@ -24,7 +21,7 @@ func ConvertHandlefunc(controllerFunc ControllerFunc) gin.HandlerFunc{
 		defer func() {
 			if e :=recover();e!=nil{
 				//捕捉到异常,断言是否是自定义的异常
-				execption,ok := e.(custom.GinxException)
+				execption,ok := e.(GinxException)
 				if ok {
 					context.JSON(http.StatusOK,gin.H{
 						"code":execption.Code,
@@ -57,16 +54,14 @@ func ConvertHandlefunc(controllerFunc ControllerFunc) gin.HandlerFunc{
 //核心实例
 var GinCoreInstance *GinxCore;
 
-//定义请求的上下文
-var RequestContext *gin.Context
 
 //ginx脚手架的核心类
 type GinxCore struct {
 	*gin.Engine //gin引擎
 	RouteGroup *gin.RouterGroup //路由分组
 	GinxDb *gorm.DB //gorm
-	RedisUtil *util.RedisUtil
-	MqUtil *util.MqUtil
+	RedisUtil *RedisUtil
+	MqUtil *MqUtil
 }
 
 
@@ -90,7 +85,7 @@ func(this *GinxCore) InitDB(config *config.GinxDbConfig) *GinxCore{
 	}
 
 	//注入自定义插件,获取执行的sql
-	db.Use(new(plugin.DbPlugin))
+	db.Use(new(DbPlugin))
 
 	this.GinxDb = db
 	return this
@@ -98,13 +93,13 @@ func(this *GinxCore) InitDB(config *config.GinxDbConfig) *GinxCore{
 
 //初始化mq
 func(this *GinxCore) InitMq(mqConfig config.MqConfig) *GinxCore{
-	this.MqUtil = util.NewMqUtil(mqConfig)
+	this.MqUtil = NewMqUtil(mqConfig)
 	return this
 }
 
 //初始化redis
 func(this *GinxCore) InitRedis(redisConfig config.RedisConfig) *GinxCore{
-	this.RedisUtil = util.NewRedisUtil(redisConfig)
+	this.RedisUtil = NewRedisUtil(redisConfig)
 	return this
 }
 

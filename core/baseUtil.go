@@ -1,9 +1,8 @@
-package util
+package core
 
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/mark-wby/ginx/custom"
 	"io/ioutil"
 	"net/http"
 	"reflect"
@@ -81,17 +80,17 @@ func HttpGetRequest(url string,headers map[string]string,res interface{}) interf
 	resp, err := client.Do(req)
 	defer resp.Body.Close()
 	if err!=nil{
-		panic(custom.NewGinxException(500,err.Error()))
+		panic(NewGinxException(500,err.Error()))
 	}
 	//读取请求数据
 	body, err := ioutil.ReadAll(resp.Body)
 	if err!=nil{
-		panic(custom.NewGinxException(500,err.Error()))
+		panic(NewGinxException(500,err.Error()))
 	}
 
 	err = json.Unmarshal(body,res)
 	if err != nil {
-		panic(custom.NewGinxException(500,"解析失败"))
+		panic(NewGinxException(500,"解析失败"))
 	}
 	return res
 }
@@ -112,17 +111,17 @@ func HttpPostRequest(url string,headers map[string]string,params map[string]inte
 	resp, err := client.Do(req)
 	defer resp.Body.Close()
 	if err!=nil{
-		panic(custom.NewGinxException(500,err.Error()))
+		panic(NewGinxException(500,err.Error()))
 	}
 	//读取请求数据
 	body, err := ioutil.ReadAll(resp.Body)
 	if err!=nil{
-		panic(custom.NewGinxException(500,err.Error()))
+		panic(NewGinxException(500,err.Error()))
 	}
 
 	err = json.Unmarshal(body,res)
 	if err != nil {
-		panic(custom.NewGinxException(500,"解析失败"))
+		panic(NewGinxException(500,"解析失败"))
 	}
 	return res
 }

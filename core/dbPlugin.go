@@ -1,8 +1,7 @@
-package plugin
+package core
 
 import (
-	"github.com/mark-wby/ginx/core"
-	"github.com/mark-wby/ginx/custom"
+	"github.com/mark-wby/ginx/config"
 	"gorm.io/gorm"
 )
 
@@ -38,10 +37,10 @@ func querySql(db *gorm.DB){
 	//fmt.Println(sql)
 
 	//获取全局请求上下文
-	context := core.RequestContext
+	context := config.RequestContext
 	res,_ :=context.Get("custom")
 
-	val, err :=res.(*custom.CustomResponseWrite)
+	val, err :=res.(*CustomResponseWrite)
 	if err{
 		//断言成功,写入日志数据
 		val.LogUtil.InfoSqlLog(sql)

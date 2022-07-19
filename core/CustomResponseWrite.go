@@ -1,15 +1,14 @@
-package custom
+package core
 
 import (
 	"bytes"
-	"github.com/mark-wby/ginx/util"
 	"github.com/gin-gonic/gin"
 )
 
 type CustomResponseWrite struct {
 	gin.ResponseWriter
 	Body *bytes.Buffer
-	LogUtil *util.LoggerUtil
+	LogUtil *LoggerUtil
 	RequestParam map[string]interface{}
 }
 

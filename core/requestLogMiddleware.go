@@ -1,12 +1,10 @@
-package middleware
+package core
 
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/mark-wby/ginx/core"
-	"github.com/mark-wby/ginx/custom"
-	"github.com/mark-wby/ginx/util"
 	"github.com/gin-gonic/gin"
+	"github.com/mark-wby/ginx/config"
 )
 
 //日志中间件
@@ -18,10 +16,10 @@ type RequestLogMiddleware struct {
 //中间件处理函数
 func(this *RequestLogMiddleware) Handle(context *gin.Context){
 	//替换自定义的response(可以存储响应内容)
-	blw := &custom.CustomResponseWrite{
+	blw := &CustomResponseWrite{
 		Body:           bytes.NewBufferString(""),
 		ResponseWriter: context.Writer,
-		LogUtil:        util.NewLoggerUtil(),
+		LogUtil:        NewLoggerUtil(),
 	}
 
 	//解析任何请求方式的请求参数,塞入结构体中
@@ -47,13 +45,13 @@ func(this *RequestLogMiddleware) Handle(context *gin.Context){
 		}
 
 	}
-	blw.RequestParam = util.MergeMap(tmpData,event)
+	blw.RequestParam = MergeMap(tmpData,event)
 
 	//关键地方在这里,将上线文中的writer对象替换成自定义的writer对象
 	context.Writer = blw
 
 	//j
-	core.RequestContext = context
+	config.RequestContext = context
 
 	context.Set("custom",blw)
 
