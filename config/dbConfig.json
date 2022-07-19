@@ -1,0 +1,7 @@
+{
+  "Driver": "mysql",
+  "Address": "10.4.90.195:3307",
+  "Database": "bastool",
+  "User": "test",
+  "Password": "!@"
+}
