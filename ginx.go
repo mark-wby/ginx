@@ -12,9 +12,9 @@ import (
 //测试案例
 func main(){
 	//解析数据库参数
-	config := jsonDecodeDbConfig();
+	//config := jsonDecodeDbConfig();
 	core.NewGinxCore().
-		InitDB(config).
+		//InitDB(config).
 		Build(&controller.IndexController{}).
 		Start(":8888")
 

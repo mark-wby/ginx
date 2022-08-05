@@ -23,7 +23,8 @@ type vtool struct {
 //测试方法
 func (this *IndexController) ceshi(context *gin.Context) interface{}{
 
-	return "ceshi"
+	panic(core.NewGinxException(500,"测试错误信息"))
+	//return "ceshi"
 }
 
 func (this *IndexController) Bind(ginxCore *core.GinxCore){

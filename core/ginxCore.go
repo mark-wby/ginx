@@ -20,8 +20,9 @@ func ConvertHandlefunc(controllerFunc ControllerFunc) gin.HandlerFunc{
 		//添加defer捕捉异常
 		defer func() {
 			if e :=recover();e!=nil{
+				fmt.Println(e)
 				//捕捉到异常,断言是否是自定义的异常
-				execption,ok := e.(GinxException)
+				execption,ok := e.(*GinxException)
 				if ok {
 					context.JSON(http.StatusOK,gin.H{
 						"code":execption.Code,
